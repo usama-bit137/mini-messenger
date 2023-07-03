@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.header__nav {
+  position: sticky;
+  z-index: 999;
+  top: -10px;
+  border-bottom: 0.5px solid rgb(132, 132, 132);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.header__title {
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+ul {
+  display: flex;
+  gap: 30px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: rgb(132, 132, 132);
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
