@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+h1 {
+  color: #094776;
+}
+
 /* HEADER */
 .header__nav {
   position: sticky;
@@ -37,11 +41,11 @@ a {
 }
 
 a:hover {
-  color: black;
-  text-decoration: underline;
+  color: #094776;
+  /* text-decoration: underline; */
 }
 
-/* CONTENTS */
+/* MESSENGER CONTENTS */
 .message {
   position: fixed;
   left: 0;
