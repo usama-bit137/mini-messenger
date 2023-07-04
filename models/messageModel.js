@@ -6,12 +6,13 @@ const messageSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  body: {
+  text: {
     type: String,
     required: true,
   },
-  date: {
-    type: new Date(),
+  added: {
+    type: Date,
+    default: new Date(),
   },
 });
 
