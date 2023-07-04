@@ -10,5 +10,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/chat', controller.getChat);
+router.get('/login', controller.login);
 
 module.exports = router;
