@@ -6,7 +6,7 @@ const router = express.Router();
 router.route('/').get(controller.getAllMessages).post(controller.postMessage);
 // router
 //   .route('/:id')
-//   .get(controller.getOneMessage)
+//   .get(controller.getMessage)
 //   .patch(controller.updateMessage)
 //   .delete(controller.deleteMessage);
 
