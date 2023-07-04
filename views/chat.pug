@@ -2,7 +2,7 @@ extends base
 
 block content
   section.message
-    form.send__message
+    form.send__message(method='POST' action="/chat")
       textarea.send__input(placeholder='Type your message')
       button.send__button(type='submit')
         img.send__icon(src='/icons/send.png' width='30px')
