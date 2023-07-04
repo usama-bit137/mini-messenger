@@ -4,7 +4,9 @@ exports.getAllMessages = async (req, res) => {
   const messages = await Messages.find();
   res.status(200).json({
     status: 'success',
-    messages,
+    data: {
+      messages,
+    },
   });
 };
 
@@ -14,9 +16,13 @@ exports.getMessage = (req, res) => {
   });
 };
 
-exports.postMessage = (req, res) => {
-  res.status(500).json({
-    message: 'route not implemented yet',
+exports.postMessage = async (req, res) => {
+  const message = await Messages.create(req.body);
+  res.status(201).send({
+    status: 'success',
+    data: {
+      message,
+    },
   });
 };
 
