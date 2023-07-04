@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // this is the mongoose schema:
 const messageSchema = mongoose.Schema({
-  name: {
+  user: {
     type: String,
     required: true,
   },
