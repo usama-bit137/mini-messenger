@@ -16,8 +16,7 @@ app.use(express.json());
 // TEMPLATE ROUTES
 app.use('/', viewsRouter);
 
-// API ROUTES:
-
+// API ROUTES
 app.use('/api/v1/messages', messagesRouter);
 
 module.exports = app;
