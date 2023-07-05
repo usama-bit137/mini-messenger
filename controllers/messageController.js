@@ -1,5 +1,5 @@
 const Messages = require('../models/messageModel');
-
+// this was just for DB testing on Postman!
 exports.getAllMessages = async (req, res) => {
   const messages = await Messages.find();
   res.status(200).json({
@@ -10,12 +10,6 @@ exports.getAllMessages = async (req, res) => {
   });
 };
 
-exports.getMessage = (req, res) => {
-  res.status(500).json({
-    message: 'route not implemented yet',
-  });
-};
-
 exports.postMessage = async (req, res) => {
   const message = await Messages.create(req.body);
   res.status(201).send({
@@ -23,17 +17,5 @@ exports.postMessage = async (req, res) => {
     data: {
       message,
     },
-  });
-};
-
-exports.updateMessage = (req, res) => {
-  res.status(500).json({
-    message: 'route not implemented yet',
-  });
-};
-
-exports.deleteMessage = (req, res) => {
-  res.status(500).json({
-    message: 'route not implemented yet',
   });
 };
