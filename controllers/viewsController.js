@@ -1,11 +1,6 @@
-exports.getChat = (req, res) => {
-  res.status(200).render('chat', {
-    title: 'Chat',
-  });
-};
+const Messages = require('../models/messageModel');
 
-exports.login = (req, res) => {
-  res.status(200).render('login', {
-    title: 'Log In',
-  });
+exports.postMessage = async (req, res) => {
+  await Messages.create(req.body);
+  res.redirect('/');
 };
