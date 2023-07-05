@@ -9,7 +9,6 @@ router.get('/', (req, res, next) => {
   });
 });
 
-router.get('/chat', controller.getChat);
-router.get('/login', controller.login);
+router.post('/', controller.postMessage);
 
 module.exports = router;
