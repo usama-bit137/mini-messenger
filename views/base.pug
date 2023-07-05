@@ -10,19 +10,9 @@ html
     title Mini Messenger | #{title}
   body
   
-    main.main
-      header.header
-        nav.header__nav
-          a(href='/')
-            img(src='/icons/favicon.png' width='50px').header__icon 
-          h1.header__title Mini Messenger
-          
-    section.all--messages
+    include _header
+        
+    block contents
+      h1 Hello there!
       
-    section.message
-      form.container(method='POST' action='/')
-        .form-group
-          input.form-control(type='text' name='user' placeholder='username')
-        .form-group
-        textarea.form_control(name='text' placeholder='Type your message')
-        button Send Message
+    include _form

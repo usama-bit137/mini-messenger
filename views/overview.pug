@@ -1,0 +1,9 @@
+extends base
+
+block contents
+  section.all--messages
+    each message in messages
+      section.message
+          h3= message.user
+          p= message.text
+          p= message.added
