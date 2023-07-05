@@ -26,39 +26,13 @@ h1 {
   padding-left: 10px;
 }
 
-ul {
-  display: flex;
-  gap: 30px;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  color: rgb(132, 132, 132);
-  text-decoration: none;
-}
-
-a:hover {
-  color: #094776;
-  /* text-decoration: underline; */
-}
-
 /* MESSENGER CONTENTS */
-.container {
+.section__form {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100vw;
+  width: 80vw;
   margin-bottom: 5px;
-}
-
-form {
-  display: flex;
-}
-
-form > * {
   border: 1px solid red;
 }
 
