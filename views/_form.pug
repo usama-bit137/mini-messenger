@@ -1,6 +1,8 @@
-form.container(method='POST' action='/')
+form.container#form(method='POST' action='/')
   .form-group
-    input.form-control(type='text' name='user' placeholder='username')
+    input.form-control#user(type='text' name='user' placeholder='username' required)
   .form-group
-  textarea.form_control(name='text' placeholder='Type your message')
-  button Send Message
+  textarea.form_control#text(name='text' placeholder='Type your message' required)
+  button.btn
+    img(src='/icons/send.png' width='20px')
+  #error
