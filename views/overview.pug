@@ -3,7 +3,10 @@ extends base
 block contents
   section.all--messages
     each message in messages
+
       section.message
-          h3= message.user
+        .message__bubble
+          p.message__user= `${message.user}:`
           p= message.text
-          p= message.added
+          
+        small.message__date-time= `${message.added}`.slice(3,21) 
