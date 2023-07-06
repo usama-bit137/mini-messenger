@@ -26,7 +26,7 @@ const messageSchema = mongoose.Schema({
 const Messages = mongoose.model('Messages', messageSchema);
 module.exports = Messages;
 ```
-The client provides the `user` and `text` fields through a `form` element. The `added` field has type `date` which is automatically assigned on submission of the message to the database. Notice that fields provided by the client are required. This prevents the client from sending empty database entries (spamming).
+The client provides the `user` and `text` fields through a `form` element. The `added` field has type `date` which is automatically assigned on creation of the `Messages` document. Notice that fields provided by the client are required. This prevents the client from sending empty database entries (spamming).
 
 ## The Frontend and Routes
 With the schema established, the key part of the frontend to focus on is the `form` element found in `views/_form.pug`
