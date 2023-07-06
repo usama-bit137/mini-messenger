@@ -10,11 +10,12 @@ html
     script(src='/scripts/formValidation.js' defer)
     title Mini Messenger | #{title}
   body
-  
-    include _header
-        
-    block contents
-      h1 Hello there!
+    main.app
+    
+      include _header
+          
+      block contents
+        h1 Hello there!
 
-    section.section__form
-      include _form
+      section.section__form
+        include _form

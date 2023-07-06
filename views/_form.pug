@@ -1,8 +1,9 @@
 form.container#form(method='POST' action='/')
-  .form-group
-    input.form-control#user(type='text' name='user' placeholder='username' required)
-  .form-group
-  textarea.form_control#text(name='text' placeholder='Type your message' required)
-  button.btn
-    img(src='/icons/send.png' width='20px')
   #error
+  #form__inputs
+    .form-group
+      input#user(type='text' name='user' placeholder='Username')
+    .form-group
+      textarea#text(name='text' placeholder='Type your message')
+    
+  button.btn: img(src='/icons/send.png' width='20px')

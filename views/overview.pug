@@ -7,6 +7,6 @@ block contents
       section.message
         .message__bubble
           p.message__user= `${message.user}:`
-          p= message.text
+          p.message__text= message.text
           
         small.message__date-time= `${message.added}`.slice(3,21) 
