@@ -56,11 +56,6 @@ exports.getAllMessages = async (req, res) => {
     messages,
   });
 };
-
-exports.postMessage = async (req, res) => {
-  await Messages.create(req.body);
-  res.redirect('/overview');
-};
 ```
 
 The `getAllMessages` handler allows the server to send a response, which renders the following `pug` template in `views/overview.pug`:
@@ -81,3 +76,19 @@ block contents
 We import the `Messages` model as it is required to retrieve the messages on the database. We loop over the `messages` array and repeat the message `block` for each message in the DB. 
 
 ## Submitting the Form
+Given the client provides a `user` and `text` and submits the form. However, we make use of a piece of middleware called `body-parser` in order to assemble our requests.
+
+```js
+app.use(bodyParser.urlencoded({ extended: true }));
+```
+Once `body-parser` encoding is setup, we make use of `req.body` to create a new `Messages` document:
+
+```js
+// controllers/viewsController.js
+
+exports.postMessage = async (req, res) => {
+  await Messages.create(req.body);
+  res.redirect('/overview');
+};
+```
+Once the document is created, the user is redirected to `http://localhost:PORT/overview`, which is the URL for the message board.
