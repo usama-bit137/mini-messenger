@@ -82,12 +82,21 @@ block contents
 We import the `Messages` model as it is required to retrieve the `messages` documents. We loop over the `messages` array and furnish the `block` with the relevant fields for each `message` in the DB. 
 
 ## Submitting the Form
-Given the client provides a `user` and `text` and submits the form. However, we make use of a piece of middleware called `body-parser` in order to assemble our requests.
+Suppose the client provides `user` and `text` fields and submits the form, we now want to create a MongoDB document from this data. In order to do this, we must make use of a piece of middleware called `body-parser` to assemble the request that will subsequently be sent to the database: 
 
 ```js
 app.use(bodyParser.urlencoded({ extended: true }));
 ```
-Once `body-parser` is enabled, we make use of `req.body` to create a new `Messages` document:
+Once `body-parser` is enabled, we make use of `req.body`
+
+```js
+req.body = {
+  user: '<USER>',
+  text: '<TEXT>'
+}
+```
+
+to create a new `Messages` document:
 
 ```js
 // controllers/viewsController.js
