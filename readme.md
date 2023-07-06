@@ -29,9 +29,11 @@ module.exports = Messages;
 The client provides the `user` and `text` fields through a `form` element. The `added` field has type `date` which is automatically assigned on creation of the `Messages` document. Notice that fields provided by the client are required. This prevents the client from sending empty database entries (spamming).
 
 ## The Frontend and Routes
-With the schema established, the key part of the frontend to focus on is the `form` element found in `views/_form.pug`
+With the schema established, the key part of the frontend to focus on is the `form` element
 
 ```pug
+// views/_form.pug
+
 form.container#form(method='POST' action='/')
   .form-group
     input.form-control#user(type='text' name='user' placeholder='username' required)
@@ -47,6 +49,7 @@ Here we see that the `form` element has a HTTP `POST` method which sends the req
 Now, we have two route handlers:
 ```js
 // controllers/viewsController.js
+
 const Messages = require('../models/messageModel');
 
 exports.getAllMessages = async (req, res) => {
@@ -58,9 +61,11 @@ exports.getAllMessages = async (req, res) => {
 };
 ```
 
-The `getAllMessages` handler allows the server to send a response, which renders the following `pug` template in `views/overview.pug`:
+The `getAllMessages` handler allows the server to send a response, which renders the following `pug` template:
 
 ```pug
+// views/overview.pug
+
 extends base
 block contents
   section.all--messages
