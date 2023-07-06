@@ -42,7 +42,7 @@ form.container#form(method='POST' action='/')
   #error
 ```
 
-Here we see that the `form` element has a HTTP `POST` method which sends the request to the root (`'/'`) of URL. The `input` is the `user` field and the `textarea` is the text field. In this form we also enforce the schema rule that `user` and `text` fields are required in order to submit the message to the database (`required`). This is vital, because if the user is able to submit empty fields, it will result in a MongoDB `ValidatorError` and since the sever does not have the capability to handle errors (just to keep things simple), this is a sufficient fix to stop the server from crashing if the user tries to send empty fields. 
+Here we see that the `form` element has a HTTP `POST` method which sends the request to the root (`'/'`) of URL. The `input` is the `user` field and the `textarea` is the `text` field. In this form we also enforce the schema rule that `user` and `text` fields are required in order to submit the message to the database (`required`). This is vital, because if the user is able to submit empty fields, it will result in a MongoDB `ValidatorError` and since the sever does not have the capability to handle errors (just to keep things simple), this is a sufficient fix to stop the server from crashing if the user tries to send empty fields. 
 
 Now, we have two route handlers:
 ```js
