@@ -28,7 +28,7 @@ module.exports = Messages;
 ```
 The client provides the `user` and `text` fields through a `form` element. The `added` field has type `date` which is automatically assigned on submission of the message to the database. Notice that fields provided by the client are required. This prevents the client from sending empty database entries (spamming).
 
-## The Frontend
+## The Frontend and Routes
 With the schema established, the key part of the frontend to focus on is the `form` element found in `views/_form.pug`
 
 ```pug
@@ -42,6 +42,38 @@ form.container#form(method='POST' action='/')
   #error
 ```
 
-Here we see that the `form` element has a HTTP `POST` method which sends the request to the root (`/`) of URL. The `input` is the `user` field and the `textarea` is the text field. In this form we also enforce the idea that the user is required to enter these credentials in order to submit their message to the database (`required`).
+Here we see that the `form` element has a HTTP `POST` method which sends the request to the root (`'/'`) of URL. The `input` is the `user` field and the `textarea` is the text field. In this form we also enforce the schema rule that `user` and `text` fields are required in order to submit the message to the database (`required`). This is vital, because if the user is able to submit empty fields, it will result in a MongoDB `ValidatorError` and since the sever does not have the capability to handle errors (just to keep things simple), this is a sufficient fix to stop the server from crashing if the user tries to send empty fields. 
 
+Now, we have two route handlers:
+```js
+// controllers/viewsController.js
+const Messages = require('../models/messageModel');
 
+exports.getAllMessages = async (req, res) => {
+  const messages = await Messages.find();
+  res.status(200).render('overview', {
+    title: 'Chat',
+    messages,
+  });
+};
+
+exports.postMessage = async (req, res) => {
+  await Messages.create(req.body);
+  res.redirect('/overview');
+};
+```
+
+The `getAllMessages` handler allows the server to send a response, which renders the following `pug` template (`/views/overview.pug`):
+
+```pug
+extends base
+block contents
+  section.all--messages
+    each message in messages
+      section.message
+        .message__bubble
+          p.message__user= `${message.user}:`
+          p= message.text
+          
+        small.message__date-time= `${message.added}`.slice(3,21) 
+```
