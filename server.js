@@ -11,11 +11,13 @@ const mongoDB = DATABASE_URL.replace('<PASSWORD>', DATABASE_PASSWORD).replace(
 
 const app = require('./app');
 
-mongoose.connect(mongoDB, {
-  // returns a promise
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(mongoDB, {
+    // returns a promise
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .catch((error) => console.log(error));
 
 const DB = mongoose.connection;
 DB.on('open', () => {
