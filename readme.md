@@ -63,7 +63,7 @@ exports.postMessage = async (req, res) => {
 };
 ```
 
-The `getAllMessages` handler allows the server to send a response, which renders the following `pug` template (`/views/overview.pug`):
+The `getAllMessages` handler allows the server to send a response, which renders the following `pug` template in `views/overview.pug`:
 
 ```pug
 extends base
@@ -77,3 +77,7 @@ block contents
           
         small.message__date-time= `${message.added}`.slice(3,21) 
 ```
+
+We import the `Messages` model as it is required to retrieve the messages on the database. We loop over the `messages` array and repeat the message `block` for each message in the DB. 
+
+## Submitting the Form
