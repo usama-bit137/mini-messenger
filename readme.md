@@ -3,7 +3,7 @@
 In this project we seek to produce a message board which allows users to send messages. The users must provide a `user` and `text` via a `form` element. MongoDB/`mongoose` was used to store the messages and these can are displayed on the frontend. The server is set up in express.js. This readme will explain how the code works to achieve these results. The frontend is written in `pug`. 
 
 ## The Schema and Model
-We previously mentioned that we used a `mongoose` to enforce a schema on the data being sent to the database. The schema has three fields: `user`, `text` and `added`. 
+We previously mentioned that we used `mongoose` to enforce a schema on the data being sent to the database. The schema has three fields: `user`, `text` and `added`. 
 ```js
 // model/messageModel.js
 const mongoose = require('mongoose')
