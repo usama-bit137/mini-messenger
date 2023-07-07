@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 dotenv.config({ path: './config.env' });
 
-const { DATABASE_URL, PORT } = process.env;
+const { DATABASE_URL, PORT, HOST } = process.env;
 const mongoDB = DATABASE_URL;
 
 const app = require('./app');
@@ -21,8 +21,8 @@ DB.on('open', () => {
   console.log('Database Connection Successful 👌');
 }).on('error', console.error.bind(console, 'Mongo connection error 💥'));
 
-const port = 3000;
-app.listen(PORT, () => {
+const port = PORT || 3000;
+app.listen(port, HOST, () => {
   console.log(
     `App listening for HTTP requests on port ${port}\nServer started at ${new Date()
       .toJSON()
