@@ -72,6 +72,10 @@ body {
   color: white;
 }
 
+#clickme__link {
+  color: var(--headings-color);
+}
+
 .message {
   border: 1px solid #094776;
   margin: 10px;
