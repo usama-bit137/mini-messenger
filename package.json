@@ -12,6 +12,7 @@
   "author": "Usama S Aqeel",
   "license": "ISC",
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.2.16",
     "eslint": "^8.44.0",
     "eslint-config-wesbos": "^3.2.3",
     "prettier": "^2.8.8"
