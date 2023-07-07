@@ -1,6 +1,6 @@
 :root {
   --app-color: #051725;
-  --form-header-color: #03101c;
+  --form-header-color: #082642;
   --headings-color: rgb(189, 73, 232);
 }
 
@@ -11,8 +11,8 @@
 ::-webkit-scrollbar-track {
   background: var(--headings-color);
   border-radius: 100vw;
-
   margin-block: 0.5em;
+  margin-right: 1em;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -24,15 +24,15 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  /* height: 100vh; */
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
 }
 
 .app {
   background-color: var(--app-color);
   position: relative;
+  height: 100vh;
 }
 
 /* HEADER */
@@ -40,10 +40,9 @@ body {
   position: sticky;
   z-index: 999;
   top: -10px;
-  background-color: #03101c;
+  background-color: var(--form-header-color);
   display: flex;
-  padding: 15px 30px;
-  height: 10vh;
+  padding: 20px 30px;
 }
 
 .header__title {
@@ -57,7 +56,7 @@ body {
   overflow-y: scroll;
   margin: auto;
   width: 90vw;
-  height: 75vh;
+  max-height: 75vh;
 }
 
 .message {
@@ -83,7 +82,7 @@ body {
 }
 
 .message__date-time {
-  color: rgba(255, 255, 255, 0.892);
+  color: var(--headings-color);
   margin: 0 20px 5px 0;
   font-style: italic;
   font-size: 12px;
@@ -95,38 +94,44 @@ body {
 
 /* FORM */
 #form {
-  display: flex;
-  border: 1px solid white;
-  padding: 0 10px 0 0;
-  border: 0;
-  justify-content: space-evenly;
-  background-color: var(--form-header-color);
-  width: 100vw;
-  height: 100px;
-
-  position: relative;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: inline-flex;
+  justify-content: center;
+  padding: 10px 10px;
+  background-color: var(--form-header-color);
+  width: 100%;
+  gap: 10px;
 }
 
 #form__inputs {
-  width: 80vw;
-  justify-content: space-evenly;
+  width: 80%;
 }
 
-input,
-#user,
-.form-control,
-textarea {
+.form-group {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+input {
   background-color: var(--app-color);
   color: rgb(132, 132, 132);
   border-radius: 10px;
   border: 1px solid #094776;
   width: 100%;
   height: 50%;
+  justify-content: center;
+  text-indent: 10px;
+  padding: 4px;
 }
 
-#user:focus,
-#text:focus {
+#user,
+#text {
+  margin: 2px 0;
   color: white;
 }
 
@@ -135,10 +140,8 @@ textarea {
 }
 
 #send__button {
-  border: 0;
-  padding: 0;
   margin: 0;
-  background-color: #1c69a3;
+  padding: 0 10px;
 }
 
 /* Styles for the submission errors */
