@@ -3,11 +3,8 @@ const mongoose = require('mongoose');
 
 dotenv.config({ path: './config.env' });
 
-const { DATABASE_NAME, DATABASE_URL, DATABASE_PASSWORD, PORT } = process.env;
-const mongoDB = DATABASE_URL.replace('<PASSWORD>', DATABASE_PASSWORD).replace(
-  '<NAME>',
-  DATABASE_NAME
-);
+const { DATABASE_URL, PORT } = process.env;
+const mongoDB = DATABASE_URL;
 
 const app = require('./app');
 
