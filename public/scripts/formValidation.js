@@ -4,12 +4,15 @@ const errorElement = document.getElementById('error');
 
 document.getElementById('form').addEventListener('submit', (e) => {
   const messages = [];
-  if (user.value === '' || user.value === null) messages.push('username');
-  if (text.value === '' || text.value === null) messages.push('text');
+  if (user.value === '' || user.value === null)
+    messages.push('Username required');
+  if (user.value.length >= 15)
+    messages.push('Username should be less than 15 characters');
+  if (text.value === '' || text.value === null) messages.push('Text required');
 
   if (messages.length > 0) {
     e.preventDefault();
-    errorElement.innerText = `${messages.join(' and ')} required`;
+    errorElement.innerText = `${messages.join('. ')}`;
     errorElement.classList.add('on-error');
     setTimeout(() => {
       errorElement.innerText = '';
