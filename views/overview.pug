@@ -5,8 +5,7 @@ block contents
     each message in messages
 
       section.message
-        .message__bubble
-          p.message__user= `${message.user}:`
-          p.message__text= message.text
+        p.message__user= `${message.user}:`
+        p.message__text= message.text
           
-        small.message__date-time= `${message.added}`.slice(3,21) 
+        small.message__date-time= 'Sent:' + `${message.added}`.slice(3,21) 
